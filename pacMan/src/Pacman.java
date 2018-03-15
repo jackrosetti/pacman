@@ -108,7 +108,7 @@ public class Pacman {
     {
         ImageIcon img = new ImageIcon(imgPath);
         graphics.drawImage(img.getImage(), xAxis, yAxis, null );
-
     }
+
 
 }
