@@ -20,19 +20,22 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
 
     public void kill()
     {
-        Rectangle pacmanRectangle = new Rectangle(pacman.getxAxis(), pacman.getyAxis(), 60, 60);
+        /*
+        Rectangle pacmanRectangle = new Rectangle(pacman.getxAxis(), pacman.getyAxis(), 30, 30);
         Rectangle ghostRectangle = new Rectangle(this.getxAxis(), this.getyAxis(), 60, 60);
-        if(pacman.isAlive() && pacman.canDie)
+
+        if(pacman.isAlive())
         {
-            if(pacmanRectangle.contains(ghostRectangle))
+            //System.out.println("Ghost X: " + getxAxis() +"Y: "+ getyAxis());
+            //System.out.println("Pac X: " + pacman.getxAxis() +"Pac Y: "+ pacman.getyAxis());
+            if(ghostRectangle.contains(pacmanRectangle))
             {
                 JOptionPane.showMessageDialog(null, "You died!");
                 System.exit(0);
             }
-        }
-
-
+        }**/
     }
+
 
     @Override
     public void run() {
