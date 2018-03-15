@@ -13,6 +13,7 @@ public class Level1 extends JPanel{
     private int fruitY = r.nextInt(500);
     private int fruitX = r.nextInt(700);
 
+
     JFrame window = new JFrame("APCSA Project");
     Pacman pacman = new Pacman(1, 1, true, "images//nickCUp.png", true);
     KeyEvents keyEvents = new KeyEvents(pacman, this);
@@ -20,7 +21,7 @@ public class Level1 extends JPanel{
             this, pacman);
     Ghosts ghost2 = new Ghosts(XAXIS_OF_GHOST+100, YAXIS_OF_GHOST+20, true, "images//DecOfInd.jpg",true,
             this, pacman);
-    fruits fruit1 = new fruits(fruitX+1, fruitY+1,true, "images//fruit.png", true,
+    fruits fruit1 = new fruits(fruitX, fruitY,true, "images//fruit.png", true,
             this, pacman);
 
 
