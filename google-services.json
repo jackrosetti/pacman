@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1063754664540",
+    "firebase_url": "https://pacman-apcsa.firebaseio.com",
+    "project_id": "pacman-apcsa",
+    "storage_bucket": "pacman-apcsa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063754664540:android:98a0eaf98248a02c",
+        "android_client_info": {
+          "package_name": "com.pacman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063754664540-p36spl4lgj0gvvcd22ch8b4s8nvlbphq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXEpXTTmfXEF3Z6762-ZeXOTaoF9l2B78"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
