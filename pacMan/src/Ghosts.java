@@ -1,14 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Ghosts extends Pacman implements Runnable //runnable allows us to use the run method
 {
     private Level1 level1;
-    Random r = new Random();
+    private Random r = new Random();
     private int direction = 1; // 1 is right; -1 is left
     private Pacman pacman;
-
+    private int speed = 3;
 
     public Ghosts(int xAxis, int yAxis, boolean isAlive, String imgPath, boolean canDie, Level1 level1, Pacman pacman)
     {
@@ -21,10 +23,10 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
 
     public void kill()
     {
-
-
         if(pacman.isAlive())
         {
+            if(level1.score != 0)
+                speed = level1.score / 2; //will always be multiple of two
             //System.out.println("Ghost X: " + getxAxis() +"Y: "+ getyAxis());
             //System.out.println("Pac X: " + pacman.getxAxis() +"Pac Y: "+ pacman.getyAxis());
             if(getHitbox().intersects(pacman.getHitbox()))
@@ -35,7 +37,6 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
             }
             else
             {
-
 
             }
         }
@@ -58,9 +59,9 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
             {
                 direction = -1;
             }
-
             kill();
-            setXAxis(getxAxis()+3 * direction);
+
+            setXAxis(getxAxis()+speed * direction);
             level1.repaint();
         }
     }
