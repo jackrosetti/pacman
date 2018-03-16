@@ -18,31 +18,41 @@ public class fruits extends Pacman implements Runnable{
         super(xAxis, yAxis, isAlive, imgPath, canDie);
         this.level1 = level1;
         this.pacman = pacman;
+        r = new Random();
     }
 
 
     public void checkForCollision()
     {
-
-        fruitTrail.add(this.getxAxis());
-        fruitTrail.add(this.getyAxis());
-        pacTrail.add(pacman.getxAxis());
-        pacTrail.add(pacman.getyAxis());
-
-        System.out.println(fruitTrail.get(fruitTrail.size()-1));
-        System.out.println(pacTrail.get(fruitTrail.size()-1));
-
-        if(pacTrail.size() == fruitTrail.size())
+        if(pacman.isAlive())
         {
-            if((pacTrail.get(pacTrail.size()-1) == fruitTrail.get(fruitTrail.size()-1)) &&
-                    fruitTrail.get(fruitTrail.size()-2) == pacTrail.get(pacTrail.size()-2)){
-                JOptionPane.showMessageDialog(null, "You collided!");
+            if(pacman.getHitbox().intersects(getHitbox()))
+            {
+                level1.score += 10;
+                this.setXAxis(r.nextInt(690));
+                this.setYAxis(r.nextInt(490));
+
             }
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Something went wrong!");
-
-        }
+//        fruitTrail.add(this.getxAxis());
+//        fruitTrail.add(this.getyAxis());
+//        pacTrail.add(pacman.getxAxis());
+//        pacTrail.add(pacman.getyAxis());
+//
+//        System.out.println(fruitTrail.get(fruitTrail.size()-1));
+//        System.out.println(pacTrail.get(fruitTrail.size()-1));
+//
+//        if(pacTrail.size() == fruitTrail.size())
+//        {
+//            if((pacTrail.get(pacTrail.size()-1) == fruitTrail.get(fruitTrail.size()-1)) &&
+//                    fruitTrail.get(fruitTrail.size()-2) == pacTrail.get(pacTrail.size()-2)){
+//                JOptionPane.showMessageDialog(null, "You collided!");
+//            }
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Something went wrong!");
+//
+//        }
     }
 
 

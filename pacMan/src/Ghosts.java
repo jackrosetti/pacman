@@ -9,6 +9,7 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
     private int direction = 1; // 1 is right; -1 is left
     private Pacman pacman;
 
+
     public Ghosts(int xAxis, int yAxis, boolean isAlive, String imgPath, boolean canDie, Level1 level1, Pacman pacman)
     {
         super(xAxis, yAxis, isAlive, imgPath, canDie);
@@ -20,20 +21,24 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
 
     public void kill()
     {
-        /*
-        Rectangle pacmanRectangle = new Rectangle(pacman.getxAxis(), pacman.getyAxis(), 30, 30);
-        Rectangle ghostRectangle = new Rectangle(this.getxAxis(), this.getyAxis(), 60, 60);
+
 
         if(pacman.isAlive())
         {
             //System.out.println("Ghost X: " + getxAxis() +"Y: "+ getyAxis());
             //System.out.println("Pac X: " + pacman.getxAxis() +"Pac Y: "+ pacman.getyAxis());
-            if(ghostRectangle.contains(pacmanRectangle))
+            if(getHitbox().intersects(pacman.getHitbox()))
             {
                 JOptionPane.showMessageDialog(null, "You died!");
                 System.exit(0);
+
             }
-        }**/
+            else
+            {
+
+
+            }
+        }
     }
 
 
