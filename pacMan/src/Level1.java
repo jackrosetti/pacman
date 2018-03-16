@@ -14,14 +14,17 @@ public class Level1 extends JPanel{
     private int fruitX = r.nextInt(700);
     public int score = 0;
 
-
     public JFrame window = new JFrame("APCSA Project");
     Pacman pacman = new Pacman(1, 1, true, "images/nickCUp.png", true);
     KeyEvents keyEvents = new KeyEvents(pacman, this);
-    Ghosts ghost1 = new Ghosts(XAXIS_OF_GHOST+20, YAXIS_OF_GHOST+100, true, "images/DecOfInd.jpg", true,
+    Ghosts ghost1 = new Ghosts(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, true, "images/DecOfInd.jpg", true,
             this, pacman);
-//    Ghosts ghost2 = new Ghosts(XAXIS_OF_GHOST+100, YAXIS_OF_GHOST+20, true, "images/DecOfInd.jpg",true,
-//            this, pacman);
+    Ghosts ghost2 = new Ghosts(SCREEN_WIDTH/2, SCREEN_WIDTH /2, true, "images/DecOfInd.jpg",true,
+            this, pacman);
+    Ghosts ghost3 = new Ghosts(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, true, "images/DecOfInd.jpg",true,
+            this, pacman);
+    Ghosts ghost4 = new Ghosts(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, true, "images/DecOfInd.jpg",true,
+            this, pacman);
     fruits fruit1 = new fruits(fruitX, fruitY,true, "images/fruit.png", true,
             this, pacman);
     JLabel scoreText = new JLabel("0");
@@ -33,8 +36,12 @@ public class Level1 extends JPanel{
         window.add(this); //just adds the JPanel
         Thread thread = new Thread(ghost1);
         thread.start(); //call the run method for the ghost
-//        Thread thread2 = new Thread(ghost2);
-//        thread2.start();
+        Thread thread2 = new Thread(ghost2);
+        thread2.start();
+        Thread thread4 = new Thread(ghost3);
+        thread4.start();
+        Thread thread5 = new Thread(ghost4);
+        thread5.start();
         Thread thread3 = new Thread(fruit1);
         thread3.start();
         window.setSize(700, 550);
@@ -50,7 +57,9 @@ public class Level1 extends JPanel{
         graphics.drawImage(imageIcon.getImage(), 0, 0, null);
         pacman.drawPacman(graphics);
         ghost1.drawPacman(graphics);
-//        ghost2.drawPacman(graphics);
+        ghost2.drawPacman(graphics);
+        ghost3.drawPacman(graphics);
+        ghost4.drawPacman(graphics);
         fruit1.drawPacman(graphics);
         graphics.setColor(Color.yellow);
         graphics.setFont(new Font("TimesRoman", Font.PLAIN, 20));
