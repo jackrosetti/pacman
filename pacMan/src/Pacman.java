@@ -9,6 +9,8 @@ public class Pacman {
     private boolean isAlive;
     public boolean canDie;
 
+    private Rectangle hitbox;
+
     public Pacman(int xAxis, int yAxis, boolean isAlive, String imgPath, boolean canDie)
     {
         setXAxis(xAxis);
@@ -16,6 +18,8 @@ public class Pacman {
         setImagePath(imgPath);
         setIsAlive(isAlive);
         setCanDie(canDie);
+        hitbox = new Rectangle(xAxis,yAxis, 90, 90);
+
     }
 
 
@@ -103,11 +107,20 @@ public class Pacman {
     public boolean isAlive() {
         return isAlive;
     }
+    public Rectangle getHitbox(){return hitbox;}
 
     public void drawPacman(Graphics graphics)
     {
+
+        Graphics2D g = (Graphics2D) graphics;
+        g.clearRect((int) hitbox.getX(),(int) hitbox.getY(),hitbox.width,hitbox.height);
+        hitbox = new Rectangle(this.getxAxis(), this.getyAxis(), 55, 55);
+//        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+
+        g.drawRect((int) hitbox.getX(),(int) hitbox.getY(),hitbox.width,hitbox.height);
+
         ImageIcon img = new ImageIcon(imgPath);
-        graphics.drawImage(img.getImage(), xAxis, yAxis, null );
+        g.drawImage(img.getImage(), xAxis, yAxis, null );
     }
 
 
