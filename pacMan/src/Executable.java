@@ -4,14 +4,15 @@ import java.util.*;
 import java.io.*;
 
 public class Executable {
-    //TO DO: Fix kill code, add fruits
+    //TO DO: Fix AI, add leaderboard
     public static void main(String[] args)
     {
-        Level1 level1 = new Level1();
-//        play();
+        IntroScreen intro = new IntroScreen();
+        intro.setVisible(true);
+        play();
     }
 
-    public static void play()
+    private static void play()
     {
         try {
             File file = new File("sounds//tetris.wav");
