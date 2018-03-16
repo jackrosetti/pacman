@@ -29,14 +29,15 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
                 speed = level1.score / 2; //will always be multiple of two
             //System.out.println("Ghost X: " + getxAxis() +"Y: "+ getyAxis());
             //System.out.println("Pac X: " + pacman.getxAxis() +"Pac Y: "+ pacman.getyAxis());
-            if(getHitbox().intersects(pacman.getHitbox()))
-            {
-                JOptionPane.showMessageDialog(null, "You died!");
-                System.exit(0);
 
-            }
-            else
-            {
+            if(getHitbox().intersects(pacman.getHitbox())) {
+                if (level1.score == 0) {
+                    JOptionPane.showMessageDialog(null, "Let's start!");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "You died!");
+                    System.exit(0);
+                }
 
             }
         }
@@ -52,16 +53,24 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
                 JOptionPane.showMessageDialog(null, "Thread interrupted ");
                 System.exit(1);
             }
-            if(getxAxis() <= new Random().nextInt(20)){
+            if(getxAxis() <= new Random().nextInt(level1.SCREEN_WIDTH - 5)){
                 direction = 1;
             }
-            else if(getxAxis()>= new Random().nextInt(level1.SCREEN_WIDTH-60))
+            else if(getxAxis()>= new Random().nextInt(level1.SCREEN_WIDTH+5))
             {
+                direction = -1;
+            }
+
+            if (getyAxis() <= new Random().nextInt(level1.SCREEN_HEIGHT - 5)){
+                direction = 1;
+            }
+            else if(getyAxis()>= new Random().nextInt(level1.SCREEN_HEIGHT+5)){
                 direction = -1;
             }
             kill();
 
             setXAxis(getxAxis()+speed * direction);
+            setYAxis(getyAxis()+speed*direction);
             level1.repaint();
         }
     }
