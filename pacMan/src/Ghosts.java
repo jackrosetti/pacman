@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -11,6 +12,7 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
     private int direction = 1; // 1 is right; -1 is left
     private Pacman pacman;
     private int speed = 3;
+
 
     public Ghosts(int xAxis, int yAxis, boolean isAlive, String imgPath, boolean canDie, Level1 level1, Pacman pacman)
     {
@@ -35,6 +37,15 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
                     JOptionPane.showMessageDialog(null, "Let's start!");
                 }
                 else {
+                    if(level1.score > IntroScreen.topScore)
+                        try {
+                            PrintWriter writer = new PrintWriter("images//scores.io", "UTF-8");
+                            writer.println(level1.score);
+                            writer.close();
+                        }
+                        catch(Exception exception){
+                            JOptionPane.showMessageDialog(null, "This is an error because \n Jack is an idiot");
+                        }
                     JOptionPane.showMessageDialog(null, "You died!");
                     System.exit(0);
                 }
@@ -49,7 +60,8 @@ public class Ghosts extends Pacman implements Runnable //runnable allows us to u
         while (true) {
             try {
                 Thread.sleep(r.nextInt(100));
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Thread interrupted ");
                 System.exit(1);
             }
