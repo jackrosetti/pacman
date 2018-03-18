@@ -67,3 +67,4 @@ public class Level1 extends JPanel{
     }
 
 }
+ 
