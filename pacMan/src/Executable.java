@@ -5,11 +5,11 @@ import java.io.*;
 
 public class Executable {
     //TO DO: Fix AI, add leaderboard
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         IntroScreen intro = new IntroScreen();
         intro.setVisible(true);
-        play();
+//        play();
     }
 
     private static void play()
